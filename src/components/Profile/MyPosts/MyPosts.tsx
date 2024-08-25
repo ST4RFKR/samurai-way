@@ -15,8 +15,7 @@ export function MyPosts() {
             <div>
                 post list
                 <Post message={'Hi,how are you?'}/>
-                <Post message={"It's my first post"}/>
-
+                <Post like={20} message={"It's my first post"}/>
             </div>
         </div>
     );

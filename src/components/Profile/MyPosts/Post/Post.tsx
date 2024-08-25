@@ -3,10 +3,11 @@ import classes from './Post.module.css';
 
 type PostPropsType = {
     message: string
+    like?:number,
 }
 
 export function Post(props:PostPropsType) {
-const {message} = props;
+const {message, like} = props;
     return (
         <div className={classes.item}>
             <img
@@ -14,7 +15,7 @@ const {message} = props;
                 alt=""/>
             {message}
             <div>
-                <span>like</span>
+                <span>like {like || 0}</span>
             </div>
         </div>
 
