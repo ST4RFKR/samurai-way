@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Navigation.module.css';
 import {NavLink} from "react-router-dom";
 
+
 export function Navigation() {
     return (
         <nav className={classes.nav}>

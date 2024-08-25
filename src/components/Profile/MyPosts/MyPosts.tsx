@@ -6,10 +6,14 @@ import {Post} from "./Post/Post";
 export function MyPosts() {
     return (
         <div>
-            My post
+             <h3>My post</h3>
             <div>
-                <textarea></textarea>
-                <button>Add</button>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Add</button>
+                </div>
             </div>
 
             <div>
