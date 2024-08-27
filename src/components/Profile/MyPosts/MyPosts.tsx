@@ -4,6 +4,16 @@ import {Post} from "./Post/Post";
 
 
 export function MyPosts() {
+    let dataPost = [{
+        id: 1,
+        message: 'Hi,how are you?',
+        like: 20
+    }, {
+        id: 2,
+        message: 'It\'s my first post?',
+        like: 11
+    }]
+    let postElements = dataPost.map(p => <Post message={p.message} like={p.like}/>)
     return (
         <div>
              <h3>My post</h3>
@@ -18,8 +28,7 @@ export function MyPosts() {
 
             <div>
                 post list
-                <Post message={'Hi,how are you?'}/>
-                <Post like={20} message={"It's my first post"}/>
+                {postElements}
             </div>
         </div>
     );
