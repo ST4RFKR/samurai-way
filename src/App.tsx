@@ -10,14 +10,28 @@ import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
 
 
-function App() {
-    return (<BrowserRouter>
+
+function App(props: any) {
+    return (
+        <BrowserRouter>
             <div className={'app-wrapper '}>
+
                 <Header/>
                 <Navigation/>
                 <div className={'app-wrapper-content'}>
-                    <Route path={'/profile'} component={Profile}/>
-                    <Route path={'/dialogs'} component={Dialogs}/>
+                    <Route path={'/profile'} render={() =>
+                        <Profile
+
+
+                            dispatch={props.dispatch}
+                            dataPost={props.appState.profilePage}
+
+                        />}/>
+                    <Route path={'/dialogs'} render={() =>
+                        <Dialogs
+
+                            dialogs={props.appState.messagesPage.dialogs}
+                                 messages={props.appState.messagesPage.messages}/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/Music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
@@ -25,6 +39,7 @@ function App() {
 
             </div>
         </BrowserRouter>
+
 
     );
 }

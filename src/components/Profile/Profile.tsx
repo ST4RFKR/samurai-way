@@ -4,11 +4,20 @@ import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 
 
-export function Profile() {
+type ProfilePropsType = {
+    dataPost: any
+    dispatch: any
+}
+
+export function Profile(props: ProfilePropsType) {
+
+
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts dispatch={props.dispatch} newPostText={props.dataPost.newPostText}
+
+                     data={props.dataPost.posts}/>
         </div>
     );
 }
