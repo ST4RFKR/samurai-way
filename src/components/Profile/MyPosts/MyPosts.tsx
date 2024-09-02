@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import classes from './MyPosts.module.css';
 import {Post} from "./Post/Post";
+import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profilePageReducer";
 
 
 type PostType = {
@@ -18,14 +19,13 @@ type myPostsPropsType ={
 
 export function MyPosts(props: myPostsPropsType) {
     let postElements = props.data.map((p:PostType) => <Post key={p.id} message={p.message} like={p.like}/>)
-    let newPostElement: any = React.createRef();
+    let newPostElement: any = useRef();
     const addPost = () => {
-        props.dispatch({type: 'ADD-POST'});
-
+        props.dispatch(addPostActionCreator());
     }
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text});
+        props.dispatch(updateNewPostActionCreator(text));
     }
 
     return (

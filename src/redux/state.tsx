@@ -1,3 +1,6 @@
+import profilePageReducer from "./profilePageReducer";
+import messagePageReducer from "./messagePageReducer";
+
 
 type PostType = {
     id: number;
@@ -63,7 +66,7 @@ let store: StoreType = {
                 {id: 2, message: 'Yo'},
                 {id: 3, message: 'What?'}
             ],
-            newMessageText: ''
+            newMessageText: 'Test'
         }
     },
     getState() {
@@ -72,22 +75,11 @@ let store: StoreType = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-    dispatch (action:any){
-        if (action.type === "ADD-POST") {
-            let newPost = {
-                id: this._state.profilePage.posts.length + 1,
-                message: this._state.profilePage.newPostText,
-                like: 0
-            };
+    dispatch(action: any) {
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagePageReducer(this._state.messagesPage, action);
+        this._callSubscriber(this._state)
 
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === "UPDATE-NEW-POST-TEXT"){
-
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }
     },
 
 };
