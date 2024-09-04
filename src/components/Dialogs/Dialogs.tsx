@@ -25,7 +25,7 @@ type DialogsPropsType = {
 
 
 export function Dialogs(props: DialogsPropsType) {
-    const newMessageElement:any = useRef();
+
 
     let dialogsElements = props.dialogs.map((el: UserPropsType) => <DialogItem key={el.id} name={el.userName}
                                                                                id={el.id}/>)
