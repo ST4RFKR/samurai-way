@@ -5,16 +5,16 @@ import {Message} from "./Message/Message";
 import {useRef} from "react";
 import {AddMessageActionCreator, updateNewMessageActionCreator} from "../../redux/messagePageReducer";
 import {Dialogs} from "./Dialogs";
+import {connect} from "react-redux";
 
 type DialogsContainerPropsType = {
-    store : any
+    store: any
 }
-
 
 
 export function DialogsContainer(props: DialogsContainerPropsType) {
 
-let state = props.store.getState();
+    let state = props.store.getState();
 
 
     const addMessage = () => {
@@ -28,12 +28,31 @@ let state = props.store.getState();
     return (
 
 
-<Dialogs addMessage={addMessage}
-         onPostChange={onPostChange}
-         newMessageText={state.messagesPage.newMessageText}
-         messages={state.messagesPage.messages}
-         dialogs={state.messagesPage.dialogs}/>
+        <Dialogs addMessage={addMessage}
+                 onPostChange={onPostChange}
+                 newMessageText={state.messagesPage.newMessageText}
+                 messages={state.messagesPage.messages}
+                 dialogs={state.messagesPage.dialogs}/>
     );
 }
 
+let mapStateToProps = (state: any) => {
+    return {
+        newMessageText: state.messagesPage.newMessageText,
+        messages: state.messagesPage.messages,
+        dialogs: state.messagesPage.dialogs
+    }
+}
+let mapDispatchToProps = (dispatch: any) => {
+    return {
+        addMessage: () => {
+            dispatch(AddMessageActionCreator())
+        } ,
+        onPostChange: (text: string) => {
+            dispatch(updateNewMessageActionCreator(text))
+        }
+
+    }
+}
+export const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 

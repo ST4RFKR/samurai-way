@@ -15,14 +15,12 @@ type MessagePropsType = {
 }
 
 type DialogsPropsType = {
-    dialogs: [],
-    messages: []
+    dialogs: Array<UserPropsType>,
+    messages: Array<MessagePropsType>
     addMessage: () => void
     onPostChange: (text: string) => void
     newMessageText:string
-
 }
-
 
 export function Dialogs(props: DialogsPropsType) {
 
