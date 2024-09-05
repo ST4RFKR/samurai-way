@@ -1,9 +1,8 @@
 import classes from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
+
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {useRef} from "react";
-import {AddMessageActionCreator, updateNewMessageActionCreator} from "../../redux/messagePageReducer";
+
 
 
 type UserPropsType = {
@@ -18,26 +17,26 @@ type MessagePropsType = {
 type DialogsPropsType = {
     dialogs: [],
     messages: []
-    dispatch: any
-    newMessageText:any
+    addMessage: () => void
+    onPostChange: (text: string) => void
+    newMessageText:string
 
 }
 
 
 export function Dialogs(props: DialogsPropsType) {
 
-
     let dialogsElements = props.dialogs.map((el: UserPropsType) => <DialogItem key={el.id} name={el.userName}
                                                                                id={el.id}/>)
     let messagesElements = props.messages.map((mes: MessagePropsType) => <Message key={mes.id} message={mes.message}/>)
 
     const addMessage = () => {
-        props.dispatch(AddMessageActionCreator());
+        props.addMessage();
     }
 
     let onPostChange = (e: any) => {
         let text = e.target.value;
-        props.dispatch(updateNewMessageActionCreator(text));
+        props.onPostChange(text);
     }
     return (
 

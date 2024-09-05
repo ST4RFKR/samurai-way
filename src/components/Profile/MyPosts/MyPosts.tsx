@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import classes from './MyPosts.module.css';
 import {Post} from "./Post/Post";
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profilePageReducer";
+
 
 
 type PostType = {
@@ -10,22 +10,26 @@ type PostType = {
     like: number;
 }
 type myPostsPropsType ={
-    data: PostType[]
-    dispatch: any
-    newPostText:any
+
+    posts: PostType[]
+    newPostText:string
+    addPost:() => void
+    onPostChange:(text:string) => void
 
 
 }
 
 export function MyPosts(props: myPostsPropsType) {
-    let postElements = props.data.map((p:PostType) => <Post key={p.id} message={p.message} like={p.like}/>)
+    let postElements = props.posts.map((p:PostType) => <Post key={p.id} message={p.message} like={p.like}/>)
     let newPostElement: any = useRef();
     const addPost = () => {
-        props.dispatch(addPostActionCreator());
+        props.addPost();
+        // props.dispatch(addPostActionCreator());
     }
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostActionCreator(text));
+        props.onPostChange(text)
+        // props.dispatch(updateNewPostActionCreator(text));
     }
 
     return (
