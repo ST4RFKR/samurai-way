@@ -21,11 +21,13 @@ const profilePageReducer = (state: any = initialState, action: any) => {
                 message: state.newPostText,
                 like: 0
             };
-            let copyState = {...state}
-            copyState.posts = [...state.posts]
-            copyState.posts.push(newPost)
-            copyState.newPostText = '';
-            return copyState;
+
+            return {
+                ...state,
+                newPostText: '',
+                posts: [...state.posts, newPost]
+
+            }
         }
 
         case UPDATE_NEW_POST_TEXT:{

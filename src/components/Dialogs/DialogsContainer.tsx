@@ -1,8 +1,4 @@
-import classes from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
-import {DialogItem} from "./DialogItem/DialogItem";
-import {Message} from "./Message/Message";
-import {useRef} from "react";
+
 import {AddMessageActionCreator, updateNewMessageActionCreator} from "../../redux/messagePageReducer";
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
