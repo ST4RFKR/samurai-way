@@ -10,37 +10,39 @@ export const setUsersAC = (users: any) => ({type: SET_USERS, users})
 
 let initialState = {
     users: [
-        {
-            id: 1,
-            isFollow: true,
-            urlPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDnW8gdU6gWQYolx7jTmrgWowhOfxQUoPCA&s',
-            fullName: 'Dmitry K.',
-            status: 'Hi i am boss',
-            location: {
-                city: 'Riga',
-                country: 'Latvia'
-            },
-        }, {
-            id: 2,
-            isFollow: false,
-            urlPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDnW8gdU6gWQYolx7jTmrgWowhOfxQUoPCA&s',
-            fullName: 'Victor L.',
-            status: 'Hi i am boss',
-            location: {
-                city: 'Kiev',
-                country: 'Ukraine'
-            },
-        }, {
-            id: 3,
-            isFollow: true,
-            urlPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDnW8gdU6gWQYolx7jTmrgWowhOfxQUoPCA&s',
-            fullName: 'Sergey Y.',
-            status: 'Hi i am boss',
-            location: {
-                city: 'Minsk',
-                country: 'Belarus'
-            },
-        }
+        // {
+        //     id: 1,
+        //     isFollow: true,
+        //     urlPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDnW8gdU6gWQYolx7jTmrgWowhOfxQUoPCA&s',
+        //     fullName: 'Dmitry K.',
+        //     status: 'Hi i am boss',
+        //     location: {
+        //         city: 'Riga',
+        //         country: 'Latvia'
+        //     },
+        // },
+        // {
+        //     id: 2,
+        //     isFollow: false,
+        //     urlPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDnW8gdU6gWQYolx7jTmrgWowhOfxQUoPCA&s',
+        //     fullName: 'Victor L.',
+        //     status: 'Hi i am boss',
+        //     location: {
+        //         city: 'Kiev',
+        //         country: 'Ukraine'
+        //     },
+        // },
+        // {
+        //     id: 3,
+        //     isFollow: true,
+        //     urlPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDnW8gdU6gWQYolx7jTmrgWowhOfxQUoPCA&s',
+        //     fullName: 'Sergey Y.',
+        //     status: 'Hi i am boss',
+        //     location: {
+        //         city: 'Minsk',
+        //         country: 'Belarus'
+        //     },
+        // }
 
 
     ],
